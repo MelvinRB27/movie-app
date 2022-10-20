@@ -25,11 +25,13 @@ apiClient.interceptors.response.use(response => {
 export default {
   getMovieMostPopular(page) {
     return apiClient.get(
-      `/discover/movie?sort_by=popularity.desc&api_key=${APIKEY}&page=${page}`
+      `/discover/movie?sort_by=popularity.desc&api_key=${APIKEY}&language=es&page=${page}`
     );
   },
-  getDataByID(id) {
-    return apiClient.get('/clients/' + id);
+  searchMovie(query, page) {
+    return apiClient.get(
+      `search/movie?api_key=${APIKEY}&language=es&query=${query}&page=${page}`
+    );
   },
   createData(data) {
     return apiClient.post('/clients/', data);

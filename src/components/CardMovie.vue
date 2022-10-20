@@ -1,26 +1,32 @@
 <template>
   <div class="row">
     <div class="containerMovie">
-      <img :src="movies.poster_path" alt="s" class="card-img-top" />
+      <img :src="movies.poster_path | coverURL" alt="s" class="card-img-top" />
       <div class="card-body">
         <h1 v-text="movies.title" class="card-title"></h1>
         <h6>
-          <b>Language:</b>
+          <b>Idioma:</b>
           {{ movies.original_language }}
         </h6>
         <h6>
-          <b>Release Date:</b>
+          <b>Fecha de lanzamiento:</b>
           {{ movies.release_date }}
         </h6>
         <h6>
-          <b>Vote Average:</b>
+          <b>Promedio de votos:</b>
           {{ movies.vote_average }}
         </h6>
         <h6>
-          <b>Vote count:</b>
+          <b>Recuento de votos:</b>
           {{ movies.vote_count }}
         </h6>
-        <p class="card-text">{{ movies.overview.substring(0, 100) + '...' }}</p>
+        <p class="card-text">
+          {{
+            movies.overview
+              ? movies.overview.substring(0, 100) + '...'
+              : 'No overview'
+          }}
+        </p>
       </div>
     </div>
   </div>
@@ -41,16 +47,31 @@ export default {
   margin-bottom: 1%;
 }
 .containerMovie {
-  height: 660px;
+  height: auto;
   margin-top: 5%;
-  box-shadow: 3px 0px 51px -20px rgba(0, 0, 0, 1);
-  -webkit-box-shadow: 3px 0px 51px -20px rgba(0, 0, 0, 1);
+  box-shadow: 3px 0px 0px -20px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 3px 0px 30px -20px rgba(0, 0, 0, 1);
   -moz-box-shadow: 3px 0px 51px -20px rgba(0, 0, 0, 1);
+}
+.containerMovie:hover {
+  background-color: rgb(45, 45, 45);
+  color: rgb(219, 214, 214);
+  cursor: pointer;
 }
 .containerMovie img {
   width: 100%;
 }
 .containerMovie {
   color: white;
+}
+@media (max-width: 1500px) {
+  .containerMovie p {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .containerMovie {
+    width: 150px;
+  }
 }
 </style>

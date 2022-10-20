@@ -7,7 +7,15 @@
 
 <script>
 import NavBar from '@/components/NavBar.vue';
+import Vue from 'vue';
 
+Vue.mixin({
+  filters: {
+    coverURL(url) {
+      return `https://image.tmdb.org/t/p/w185_and_h278_bestv2${url}`;
+    }
+  }
+});
 export default {
   components: {
     NavBar

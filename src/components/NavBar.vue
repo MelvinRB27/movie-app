@@ -11,7 +11,11 @@ export default {};
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Silkscreen&display=swap');
+
 .logoMP {
+  font-family: 'Silkscreen';
+  font-size: 22px;
   float: left;
   text-decoration: none;
 }
@@ -21,10 +25,17 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: red;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+@media (max-width: 900px) {
+  .logoMP {
+    font-size: 15px;
+    float: left;
+  }
 }
 </style>

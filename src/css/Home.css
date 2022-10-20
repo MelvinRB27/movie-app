@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+.container {
+  width: 100%;
+}
+.row {
+  margin-top: 5px;
+}
+.row h1 {
+  font-family: 'Rancho';
+  color: #42b983;
+}
+.row p {
+  font-family: 'Bubblegum-Sans';
+}
+.row .titlePage {
+  font-family: 'Silkscreen';
+  color: #42b983;
+}
+.containerButtons button {
+  font-family: 'Silkscreen';
+}
+.btn-last {
+  float: right;
+  background-color: brown;
+  margin-left: 2px;
+}
+.btn-next {
+  margin-left: 2px;
+}
+
+.numberPage {
+  width: auto;
+  color: white;
+  position: fixed;
+  left: 4%;
+}
+.containerButtons {
+  display: grid;
+  height: auto;
+  background: rgba(247, 242, 242, 0.077);
+  border-radius: 5px;
+  position: fixed;
+  padding: 8px;
+  left: 30px;
+  bottom: 10%;
+}
+.containerButtons button {
+  font-size: 12px;
+}
+.btn-first {
+  background: #42b983;
+  margin-left: 2px;
+}
+.btn-first:hover {
+  background: #009853;
+  color: red;
+}
+.input-search {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.cntRow {
+    margin: auto;
+}
+@media (max-width: 1500px) {
+  .cntRow {
+      margin: auto;
+      width: 90%;
+  }
+  .containerButtons {
+    width: 140px;
+    position: fixed;
+    padding: 8px;
+    left: 8px;
+    bottom: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
+@media (max-width: 1000px) {
+  .input-search {
+    top: 50px;
+  }
+  .titlePage {
+    margin-top: 5%;
+    font-size: 20px;
+  }
+  .row {
+    margin-top: 15%;
+  }
+  .row .col-12{
+    display: inline-flex;
+  }
+  .numberPage {
+    position: relative;
+    top: 0;
+    left: 0;
+    color: red;
+  }
+  .containerButtons {
+    position: relative;
+    padding: 8px;
+    left: 0;
+    bottom: 0;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}

@@ -12,6 +12,12 @@ module.exports = {
     parser: '@babel/eslint-parser'
   },
   rules: {
+    'vue/no-use-v-if-with-v-for': [
+      'error',
+      {
+        allowUsingIterationVar: true
+      }
+    ],
     'prettier/prettier': [
       'error',
       {
