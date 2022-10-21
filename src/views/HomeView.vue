@@ -2,6 +2,7 @@
   <div class="home container">
     <div class="input-search">
       <SearchMovies
+        ref="searchMethod"
         v-on:homePage="
           GetMoviesPopular(1);
           page = 1;
@@ -14,13 +15,9 @@
       <div class="numberPage">
         <h1 v-text="page"></h1>
       </div>
-      <div class="row">
-        <h1 class="titlePage">Películas más populares</h1>
-        <div
-          class="col-12 col-md-6 col-lg-2"
-          v-for="(v, index) in movies"
-          :key="index"
-        >
+      <h1 class="titlePage">Películas más populares</h1>
+      <div class="row3">
+        <div class="col-6 col-sm-2" v-for="(v, index) in movies" :key="index">
           <CardMovie :movies="v" />
         </div>
       </div>
@@ -84,16 +81,46 @@
       <div class="numberPage">
         <h1 v-text="inputMovie.page"></h1>
       </div>
-      <div class="row">
-        <h1 class="titlePage">Resultados</h1>
+      <h1 class="titlePage">Resultados</h1>
+      <div class="row3">
         <div
-          class="col-12 col-md-6 col-lg-2"
+          class="col-6 col-sm-2"
           v-for="(v, index) in inputMovie.results"
           :key="index"
           v-if="v.poster_path"
         >
           <CardMovie :movies="v" />
         </div>
+      </div>
+      <div v-if="this.inputMovie.total_pages > 1" class="containerButtons">
+        <button
+          v-show="this.inputMovie.page > 1"
+          v-on:click="firstPage"
+          class="btn btn-dark btn-first"
+        >
+          1
+        </button>
+        <button
+          v-show="this.inputMovie.page > 1"
+          v-on:click="backPage"
+          class="btn btn-dark btn-back"
+        >
+          Back page
+        </button>
+        <button
+          v-show="this.inputMovie.page < this.inputMovie.total_pages"
+          v-on:click="nextPage"
+          class="btn btn-dark btn-next"
+        >
+          Next page
+        </button>
+        <button
+          v-show="page != total_Pages"
+          v-on:click="lastPage"
+          class="btn btn-dark btn-last"
+        >
+          Last page
+        </button>
       </div>
     </div>
   </div>
@@ -104,6 +131,7 @@
 import CardMovie from '@/components/CardMovie.vue';
 import ApiServices from '@/services/APIServices.js';
 import SearchMovies from '@/components/SearchMovies.vue';
+
 export default {
   name: 'HomeView',
   components: {
@@ -127,6 +155,18 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    firstPage() {
+      this.$refs.searchMethod.searchMovie(1);
+    },
+    nextPage() {
+      this.$refs.searchMethod.searchMovie((this.inputMovie.page += 1));
+    },
+    backPage() {
+      this.$refs.searchMethod.searchMovie((this.inputMovie.page -= 1));
+    },
+    lastPage() {
+      this.$refs.searchMethod.searchMovie(this.inputMovie.total_pages);
     }
   },
   mounted() {

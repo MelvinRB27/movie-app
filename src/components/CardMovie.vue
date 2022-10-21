@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="ctn0">
     <div class="containerMovie">
       <img :src="movies.poster_path | coverURL" alt="s" class="card-img-top" />
       <div class="card-body">
@@ -41,11 +41,8 @@ export default {
 </script>
 
 <style>
-.card-title {
-  font-size: 25px;
-  color: rgb(246, 8, 8);
-  margin-bottom: 1%;
-}
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+
 .containerMovie {
   height: auto;
   margin-top: 5%;
@@ -58,20 +55,38 @@ export default {
   color: rgb(219, 214, 214);
   cursor: pointer;
 }
+.containerMovie .card-title {
+  font-family: 'Rancho';
+  color: #42b983;
+}
 .containerMovie img {
   width: 100%;
 }
 .containerMovie {
   color: white;
 }
+
 @media (max-width: 1500px) {
   .containerMovie p {
-    display: none;
+    font-size: 12px;
+  }
+  h6 {
+    font-size: 12px;
   }
 }
 @media (max-width: 900px) {
+  .containerMovie p {
+    display: none;
+    font-size: 12px;
+  }
   .containerMovie {
-    width: 150px;
+    width: 100px;
+  }
+  .containerMovie .card-title {
+    font-family: 'Rancho';
+    font-size: 20px;
+    color: #42b983;
+    margin-bottom: 2%;
   }
 }
 </style>
