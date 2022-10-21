@@ -33,13 +33,7 @@ export default {
       `search/movie?api_key=${APIKEY}&language=es&query=${query}&page=${page}`
     );
   },
-  createData(data) {
-    return apiClient.post('/clients/', data);
-  },
-  deleteData(id) {
-    return apiClient.delete('/clients/' + id);
-  },
-  updateData(id, data) {
-    return apiClient.put('/clients/' + id, data);
+  getMovieByID(id) {
+    return apiClient.get(`/movie/${id}?api_key=${APIKEY}&language=es`);
   }
 };

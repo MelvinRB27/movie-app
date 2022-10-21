@@ -1,13 +1,29 @@
 <template>
   <nav>
     <router-link to="/" class="logoMP">MOVIE PREVIEW</router-link>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <input
+      type="button"
+      value="Regresar"
+      v-if="this.$route.path != '/'"
+      @click="goToBack"
+      class="btn btn-outline-success"
+    />
   </nav>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      url: this.$route.path
+    };
+  },
+  methods: {
+    goToBack() {
+      window.history.back();
+    }
+  }
+};
 </script>
 
 <style>
@@ -21,6 +37,7 @@ export default {};
 }
 nav {
   padding: 30px;
+  margin-bottom: 5%;
 }
 
 nav a {
@@ -31,6 +48,10 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
+}
+input {
+  float: right;
+  border-color: red;
 }
 @media (max-width: 900px) {
   .logoMP {

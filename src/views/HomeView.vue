@@ -18,7 +18,9 @@
       <h1 class="titlePage">Películas más populares</h1>
       <div class="row3">
         <div class="col-6 col-sm-2" v-for="(v, index) in movies" :key="index">
-          <CardMovie :movies="v" />
+          <router-link :to="`/detail-movie/:${v.id}`">
+            <CardMovie :movies="v" />
+          </router-link>
         </div>
       </div>
 
@@ -36,20 +38,20 @@
 
         <div>
           <button
-            v-show="page > 1"
-            @click="GetMoviesPopular((page -= 1))"
-            class="btn btn-dark btn-back"
-          >
-            <i class="fa-solid fa-arrow-left"></i>
-            Página
-          </button>
-          <button
             v-show="page < total_Pages"
             @click="GetMoviesPopular((page += 1))"
             class="btn btn-dark btn-next"
           >
             <i class="fa-solid fa-arrow-right"></i>
-            Página
+            Next page
+          </button>
+          <button
+            v-show="page > 1"
+            @click="GetMoviesPopular((page -= 1))"
+            class="btn btn-dark btn-back"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+            Back page
           </button>
         </div>
 
@@ -89,7 +91,12 @@
           :key="index"
           v-if="v.poster_path"
         >
-          <CardMovie :movies="v" />
+          <router-link
+            class="linkCard"
+            :to="{ name: 'detailMovie', params: { id: `${v.id}` } }"
+          >
+            <CardMovie :movies="v" />
+          </router-link>
         </div>
       </div>
       <div v-if="this.inputMovie.total_pages > 1" class="containerButtons">
@@ -101,24 +108,27 @@
           1
         </button>
         <button
-          v-show="this.inputMovie.page > 1"
-          v-on:click="backPage"
-          class="btn btn-dark btn-back"
-        >
-          Back page
-        </button>
-        <button
           v-show="this.inputMovie.page < this.inputMovie.total_pages"
           v-on:click="nextPage"
           class="btn btn-dark btn-next"
         >
+          <i class="fa-solid fa-arrow-right"></i>
           Next page
+        </button>
+        <button
+          v-show="this.inputMovie.page > 1"
+          v-on:click="backPage"
+          class="btn btn-dark btn-back"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          Back page
         </button>
         <button
           v-show="page != total_Pages"
           v-on:click="lastPage"
           class="btn btn-dark btn-last"
         >
+          <i class="fa-solid fa-forward-fast"></i>
           Last page
         </button>
       </div>
@@ -151,6 +161,7 @@ export default {
       ApiServices.getMovieMostPopular(numberPage)
         .then(({ data }) => {
           this.movies = data.results;
+          window.scrollTo(0, 0);
         })
         .catch(error => {
           console.log(error);
@@ -158,15 +169,19 @@ export default {
     },
     firstPage() {
       this.$refs.searchMethod.searchMovie(1);
+      window.scrollTo(0, 0);
     },
     nextPage() {
       this.$refs.searchMethod.searchMovie((this.inputMovie.page += 1));
+      window.scrollTo(0, 0);
     },
     backPage() {
       this.$refs.searchMethod.searchMovie((this.inputMovie.page -= 1));
+      window.scrollTo(0, 0);
     },
     lastPage() {
       this.$refs.searchMethod.searchMovie(this.inputMovie.total_pages);
+      window.scrollTo(0, 0);
     }
   },
   mounted() {
