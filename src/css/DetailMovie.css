@@ -141,7 +141,7 @@
     .cardBodyDetail {
       margin: auto;
       position: absolute;
-      bottom: 0%;
+      bottom: -3%;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -166,7 +166,7 @@
     .cardBodyDetail {
       margin: auto;
       position: absolute;
-      bottom: -8%;
+      bottom: -12%;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -190,7 +190,7 @@
     .cardBodyDetail {
       margin: auto;
       position: absolute;
-      bottom: -15%;
+      bottom: -22%;
       left: 50%;
       transform: translateX(-50%);
     }

@@ -12,6 +12,7 @@
       <!-- <img :src="movie.poster_path | coverURL" alt="s" class="card-img-top" /> -->
       <div class="cardBodyDetail">
         <h1 v-text="movie.title" class="card-title"></h1>
+        <h3 v-text="movie.tagline" class="card-title"></h3>
         <h6>
           <b>Idioma:</b>
           {{ movie.original_language }}
@@ -31,6 +32,13 @@
         <p class="card-text col-md-6">
           {{ movie.overview ? movie.overview : 'No overview' }}
         </p>
+
+        <ul>
+          <b>Géneros:</b>
+          <li v-for="(v, index) in movie.genres" :key="index">
+            {{ v.name }}
+          </li>
+        </ul>
 
         <ul>
           <b>País donde se produjo:</b>
@@ -77,6 +85,11 @@ export default {
         })
         .catch(error => {
           console.log(error);
+          if (error.response.status == '304') {
+            this.$router.push('/error-server');
+          } else if (error.response.status == '404') {
+            this.$router.push('/error-server');
+          }
         });
     }
   },

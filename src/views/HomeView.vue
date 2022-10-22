@@ -18,7 +18,7 @@
       <h1 class="titlePage">Películas más populares</h1>
       <div class="row3">
         <div class="col-6 col-sm-2" v-for="(v, index) in movies" :key="index">
-          <router-link :to="`/detail-movie/:${v.id}`">
+          <router-link :to="{ name: 'detailMovie', params: { id: `${v.id}` } }">
             <CardMovie :movies="v" />
           </router-link>
         </div>
@@ -165,6 +165,9 @@ export default {
         })
         .catch(error => {
           console.log(error);
+          if (error.response.status == '500') {
+            this.$router.push('/error-server');
+          }
         });
     },
     firstPage() {

@@ -15,6 +15,7 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(config => {
   nProgress.start();
+  nProgress.set(100);
   return config;
 });
 apiClient.interceptors.response.use(response => {

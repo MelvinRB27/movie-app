@@ -46,6 +46,9 @@ export default {
         })
         .catch(error => {
           console.log(error);
+          if (error.code == 'ECONNABORTED') {
+            window.location.href = '/page-notFound';
+          }
         });
     },
     clearInput() {
