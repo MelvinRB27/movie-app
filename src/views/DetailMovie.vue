@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       movie: {},
-      movieID: this.$route.params.id.slice(1)
+      movieID: this.$route.params.id
     };
   },
   methods: {
