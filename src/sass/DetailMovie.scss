@@ -1,0 +1,62 @@
+@use 'variables';
+@use 'mixins';
+
+.deital {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+.containerMovieDeatil {
+    width: 100%;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .cardBodyDetail .card-title {
+    font-family: 'Rancho';
+    color: #42b983;
+  }
+  .cardBodyDetail {
+    color: white;
+  }
+  .cardBodyDetail b {
+    color: rgb(206, 182, 182);
+  }
+  .cardBodyDetail p {
+    margin: auto;
+  }
+  .cardBodyDetail ul {
+    list-style: none;
+  }
+  .cardBodyDetail button {
+    text-align: center;
+    bottom: 0;
+    margin: auto;
+    margin-left: 2%;
+    border-color: red;
+  }
+  @media screen and (max-width: 1920px) {
+    @include mixins.p-h6-structure-card(null, 18px, null, null, 18px)
+  }
+  @media screen and (max-width: 1500px) {
+    @include mixins.p-h6-structure-card(null, 18px, null, null, 18px)
+  }
+  @media screen and (max-width: 1000px) {
+    @include mixins.p-h6-structure-card(auto, 12px, center, 325px, 14px)
+  }
+  @media screen and (max-width: 1024px) {
+    @include mixins.p-h6-structure-card(auto, 19px, center, 450px, 16px)
+  }
+  @media screen and (max-width: 700px) {
+    @include mixins.p-h6-structure-card(auto, 17px, center, 500px, 15px)
+  }
+  @media screen and (max-width: 420px) {
+    @include mixins.p-h6-structure-card
+  }
+  @media screen and (max-width: 400px) {
+    @include mixins.p-h6-structure-card
+  }
+  @media screen and (max-width: 360px) {
+    @include mixins.p-h6-structure-card  
+  }

@@ -8,59 +8,57 @@
           movie.poster_path +
           ')'
       }"
-    >
-      <!-- <img :src="movie.poster_path | coverURL" alt="s" class="card-img-top" /> -->
-      <div class="cardBodyDetail">
-        <h1 v-text="movie.title" class="card-title"></h1>
-        <h3 v-text="movie.tagline" class="card-title"></h3>
-        <h6>
-          <b>Idioma:</b>
-          {{ movie.original_language }}
-        </h6>
-        <h6>
-          <b>Fecha de lanzamiento:</b>
-          {{ movie.release_date }}
-        </h6>
-        <h6>
-          <b>Promedio de votos:</b>
-          {{ movie.vote_average }}
-        </h6>
-        <h6>
-          <b>Recuento de votos:</b>
-          {{ movie.vote_count }}
-        </h6>
-        <p class="card-text col-md-6">
-          {{ movie.overview ? movie.overview : 'No overview' }}
-        </p>
+    ></div>
+    <div class="cardBodyDetail">
+      <h1 v-text="movie.title" class="card-title"></h1>
+      <h3 v-text="movie.tagline" class="card-title"></h3>
+      <h6>
+        <b>Idioma:</b>
+        {{ movie.original_language }}
+      </h6>
+      <h6>
+        <b>Fecha de lanzamiento:</b>
+        {{ movie.release_date }}
+      </h6>
+      <h6>
+        <b>Promedio de votos:</b>
+        {{ movie.vote_average }}
+      </h6>
+      <h6>
+        <b>Recuento de votos:</b>
+        {{ movie.vote_count }}
+      </h6>
+      <p class="card-text col-md-6">
+        {{ movie.overview ? movie.overview : 'No overview' }}
+      </p>
 
-        <ul>
-          <b>Géneros:</b>
-          <li v-for="(v, index) in movie.genres" :key="index">
-            {{ v.name }}
-          </li>
-        </ul>
+      <ul>
+        <b>Géneros:</b>
+        <li v-for="(v, index) in movie.genres" :key="index">
+          {{ v.name }}
+        </li>
+      </ul>
 
-        <ul>
-          <b>País donde se produjo:</b>
-          <li v-for="(v, index) in movie.production_countries" :key="index">
-            {{ v.name }}
-          </li>
-        </ul>
+      <ul>
+        <b>País donde se produjo:</b>
+        <li v-for="(v, index) in movie.production_countries" :key="index">
+          {{ v.name }}
+        </li>
+      </ul>
 
-        <ul>
-          <b>Compañia de producción:</b>
-          <li v-for="(v, index) in movie.production_companies" :key="index">
-            {{ v.name }}
-          </li>
-        </ul>
+      <ul>
+        <b>Compañia de producción:</b>
+        <li v-for="(v, index) in movie.production_companies" :key="index">
+          {{ v.name }}
+        </li>
+      </ul>
 
-        <ul>
-          <b>Idioma hablado:</b>
-          <li v-for="(v, index) in movie.spoken_languages" :key="index">
-            {{ v.name }}
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <b>Idioma hablado:</b>
+        <li v-for="(v, index) in movie.spoken_languages" :key="index">
+          {{ v.name }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>

@@ -1,0 +1,53 @@
+
+@mixin p-h6-structure-card( 
+    $card-margin: auto,
+    $pFont-size12: 12px,
+    $pText-alignCenter: center,
+    $pWidth330px: 330px,
+    $h6Font-size12: 12px)
+    {
+    .cardBodyDetail {
+        margin: $card-margin;
+    }
+    .cardBodyDetail p{
+        text-align: $pText-alignCenter;
+        font-size: $pFont-size12;
+        width: $pWidth330px;
+    }
+    .cardBodyDetail h6 {
+        font-size: $h6Font-size12;
+    }
+}
+
+@mixin input-title-etc-1000px {
+    .input-search {
+        top: 130px;
+      }
+      .titlePage {
+        margin-top: 25%;
+        font-size: 20px;
+      }
+      .row3 .col-6{
+        width: auto;
+        display: inline-flex;
+        margin-top: 5px;
+      }
+      .numberPage {
+        position: relative;
+        top: 0;
+        left: 0;
+        color: red;
+      }
+      .containerButtons {
+        margin: auto;
+        position: relative;
+        padding: 8px;
+        left: 0;
+        bottom: 0;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+      .ctnCard{
+        display: inline-flex;
+      }
+}
