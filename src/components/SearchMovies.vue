@@ -36,8 +36,8 @@ export default {
     };
   },
   methods: {
-    searchMovie(page) {
-      APIServices.searchMovie(this.query, page)
+    searchMovie() {
+      APIServices.searchMovie(this.query, this.page)
         .then(({ data }) => {
           console.log(data);
           this.$emit('input', data);
